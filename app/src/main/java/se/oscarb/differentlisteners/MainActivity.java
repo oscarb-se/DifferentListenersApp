@@ -91,6 +91,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                     }
         );
 
+        /* Om setOnClickListener används flera gånger för samma knapp så
+           byts koden (metoden) ut som körs när knappen klickas på.
+
+           Flera olika knappar kan ha samma metod om alternativ 1 eller 2 används
+           För att ta reda på vilken knapp som klickades på, se exemplena högst upp!
+         */
+
 
 
 

@@ -7,7 +7,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,13 +68,39 @@ public class MainActivity extends AppCompatActivity {
         // Koppla ihop nyligen skapad knapp med lyssnare
 
         // Alternativ 1:
-        MyButtonListener myButtonListener = new MyButtonListener();
-        myButton.setOnClickListener(myButtonListener);
+        // Använder klassen MyButtonListener i filen MyButtonListener.java
+        // MyButtonListener myButtonListener = new MyButtonListener();
+        // myButton.setOnClickListener(myButtonListener);
+
+        // Alternativ 2:
+        // Använd en existerande klass (den här klassen!)
+        // Lägg till så att den här klassen implementerar View.OnClickListener()
+        // myButton.setOnClickListener(this);
+
+        // Alternativ 3:
+        // Använd en inre anonym klass
+        // Lägg till kod direkt där argumentet ska vara
+        myButton.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                        public void onClick(View v) {
+                                           // Kod som ska köras när knapp trycks på
+                                           Toast.makeText(MainActivity.this,
+                                                          "Dynamisk knapp med onClick i inre anonym klass!",
+                                                           Toast.LENGTH_SHORT).show();
+                                       }
+                                    }
+        );
+
+
+
 
     }
 
-
-
-
-
+    // Alternativ 2 (var vi klan placera kod för knapptryck)
+    // Den här metoden är med eftersom den här klassen, MainActivity, implementerar View.OnClickListener
+    @Override
+    public void onClick(View v) {
+        // Kod som ska köras när en knapp trycks på
+        Toast.makeText(this, "Dynamisk knapp med metoden onClick i samma klass!", Toast.LENGTH_SHORT).show();
+    }
 }

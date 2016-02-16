@@ -19,6 +19,6 @@ public class MyButtonListener implements View.OnClickListener {
         // +- Vi har ingen "naturlig" context, så vi hämtar den från knappen:
         // v.getContext()
 
-        Toast.makeText(v.getContext(), "Hej!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(v.getContext(), "Dynamisk knapp med metoden onClick i egen klass!", Toast.LENGTH_SHORT).show();
     }
 }

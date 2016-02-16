@@ -3,6 +3,8 @@ package se.oscarb.differentlisteners;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,6 +47,33 @@ public class MainActivity extends AppCompatActivity {
 
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
+
+    /*
+        Demonstration av lyssnare och händelser
+     */
+
+    // Metod som skapar en knapp dynamiskt.
+    // Den skapade knappen kopplas sen ihop med en lyssnare
+    public void createButton1(View view)  {
+        // Vi behöver komma åt var vi vill placera knappen
+        LinearLayout buttonContainer1 = (LinearLayout) findViewById(R.id.button_container1);
+
+        // Skapa knappen
+        Button myButton = new Button(this);
+        myButton.setText("Created Button 1");
+
+        // Placera i vår LinearLayout buttonContainer1
+        buttonContainer1.addView(myButton);
+
+        // Koppla ihop nyligen skapad knapp med lyssnare
+
+        // Alternativ 1:
+        MyButtonListener myButtonListener = new MyButtonListener();
+        myButton.setOnClickListener(myButtonListener);
+
+    }
+
+
 
 
 

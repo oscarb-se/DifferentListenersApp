@@ -87,15 +87,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                            Toast.makeText(MainActivity.this,
                                                           "Dynamisk knapp med onClick i inre anonym klass!",
                                                            Toast.LENGTH_SHORT).show();
+
                                        }
                                     }
         );
 
-        /* Om setOnClickListener används flera gånger för samma knapp så
+        /* NOTERINGAR:
+           Om setOnClickListener används flera gånger för samma knapp så
            byts koden (metoden) ut som körs när knappen klickas på.
 
            Flera olika knappar kan ha samma metod om alternativ 1 eller 2 används
            För att ta reda på vilken knapp som klickades på, se exemplena högst upp!
+
+           Metoden .setOnClickListener() kan användas på mer än bara knappar (allt som är View)
+
+           Andra lyssnare (gränssnitt)  Metod att implementera  När vad händer?
+           -----------------------------------------------------------------------------------
+           View.OnLongClickListener     onLongClick()           Man håller fingret nedtryckt
+
+           View.OnKeyListener           onKey()                 Hårdvaruknapp tryckts på
+
+           View.onTouchListener         onTouch()               Olika gester och tryck
+
+
+           Källa: http://developer.android.com/guide/topics/ui/ui-events.html#EventListeners
+
          */
 
 
